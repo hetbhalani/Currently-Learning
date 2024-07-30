@@ -5,7 +5,6 @@ computer = random.choice([1,-1,0])
 yourstr = input("Enter your choice: ")
 yourDict = {"s" : 1, "w" : -1, "g" : 0}
 reverseDict = {1 : "Snake", -1 : "Waater", 0 : "Gun"}
-
 you = yourDict[yourstr]
 
 print(f"you chose: {reverseDict[you]}\nand Computer chose: {reverseDict[computer]}")
