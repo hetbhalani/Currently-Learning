@@ -49,4 +49,3 @@ a = calc(4)
 a.squre()
 a.squreRoot()
 a.cube()
-
