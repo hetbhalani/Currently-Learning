@@ -16,3 +16,15 @@ class het:
 obj = het()
 obj.langauge = "Javascript"
 print(obj.name, obj.langauge)
+
+
+
+class program:
+    compeny = "Microsoft"
+
+    def __init__(self,name,langauge,salary):
+         self.name = name
+         self.langauge = langauge
+         self.salary = salary
+
+objject = program("Het", )
