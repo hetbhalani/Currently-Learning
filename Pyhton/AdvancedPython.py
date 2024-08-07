@@ -1,3 +1,5 @@
+from functools import reduce
+
 #Walrus
 
 if (n := len([1, 2, 3, 4, 5])) > 3:
@@ -45,3 +47,19 @@ l = [1,2,3,4,5,6]
 squre = lambda x: x*x
 sqlist = map(squre, l)
 print(list(sqlist))
+
+#filter
+
+def even(n):
+    if(n%2 == 0):
+        return True
+    return False
+
+onlyEven = filter(even, l)
+print(list(onlyEven))
+
+#reduce
+
+l = [1, 2, 3, 4, 5, 6]
+sum = lambda x, y: x + y
+print(reduce(sum, l))
