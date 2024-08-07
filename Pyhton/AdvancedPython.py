@@ -19,6 +19,7 @@ mult = lambda x,y: x*y
 print(mult(2,4))
 
 #enumarator
+
 l = [1,3,6,2,4,9]
 
 # index = 0
@@ -28,3 +29,19 @@ l = [1,3,6,2,4,9]
 
 for index,item in enumerate(l):
     print(f"{item} at index {index}")
+
+
+# join Method
+
+l = ["het","bhai","ho"]
+
+final = '-'.join(l)
+print(final)
+
+#map
+
+l = [1,2,3,4,5,6]
+
+squre = lambda x: x*x
+sqlist = map(squre, l)
+print(list(sqlist))
