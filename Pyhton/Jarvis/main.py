@@ -9,26 +9,27 @@ def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+def processCommand(c):
+    print(c)
+
 if __name__ == "__main__":
     speak("initializing jarvis...")
     
-    while True:
-        with microphone as source:
-            print("Listening...")
-            audio = recognizer.listen(source, timeout=2)
-        
-        print("Recognizing...")
+    while True: 
+        print("Listening...")
         try:
-            command = recognizer.recognize_google(audio)
-            print(command)
-            # Add your command processing logic here
-            
-            # Example: Exit the loop if the command is "exit"
-            if command.lower() == "exit":
-                break
-        except sr.UnknownValueError:
-            print("Could not understand audio")
-        except sr.RequestError as e:
-            print("Error with the speech recognition service; {0}".format(e))
+            with microphone as source:
+                audio = recognizer.listen(source, timeout=2, phrase_time_limit=3)
+                word = recognizer.recognize_google(audio)
 
-    speak("Shutting down jarvis...")
+            if(word.lower() == "jarvis"):
+                speak("Yes sir!")
+                with microphone as source:
+                    print("Jarvis Activated!")
+                    audio = recognizer.listen(source)
+                    command = recognizer.recognize_google(audio)
+
+                    processCommand(command)
+                            
+        except Exception as e:
+            print("Error;{0}".format(e))
