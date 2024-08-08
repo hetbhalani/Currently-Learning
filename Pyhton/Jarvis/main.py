@@ -20,10 +20,11 @@ def processCommand(c):
         webbrowser.open("https://www.youtube.com/")
     elif "open instagram" in c.lower():
         webbrowser.open("https://www.instagram.com/")
-    elif c.lower().startsWith("play"):
-        song = c.lower().split(" ")[1]
+    elif c.lower().startswith("play"):
+        song = c.lower().split(" ",1)[1]
         link = musicLib.music[song]
-        webbrowser
+        webbrowser.open(link)
+
 if __name__ == "__main__":
     speak("initializing Alfred...")
     
