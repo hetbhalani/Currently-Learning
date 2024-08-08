@@ -2,10 +2,12 @@ import speech_recognition as sr
 import pyttsx3
 import webbrowser
 import musicLib
+import requests
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 microphone = sr.Microphone()
+newsAPI = "6ff2882ba17d42229e809add5c68a6de"
 
 def speak(text):
     engine.say(text)
@@ -24,6 +26,8 @@ def processCommand(c):
         song = c.lower().split(" ",1)[1]
         link = musicLib.music[song]
         webbrowser.open(link)
+    elif "today's news" in c.lower():
+        r = requests.get("https://newsapi.org/v2/top-headlines?country=us&apiKey=6ff2882ba17d42229e809add5c68a6de")
 
 if __name__ == "__main__":
     speak("initializing Alfred...")
