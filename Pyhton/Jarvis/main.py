@@ -9,7 +9,7 @@ from nltk.chat.util import Chat, reflections
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 microphone = sr.Microphone()
-newsAPI = "6ff2882ba17d42229e809add5c68a6de"
+#API key for news... me nahi bataugaaaaa!!!
 nltk.download('punkt', quiet=True)
 
 patterns = [
