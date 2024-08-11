@@ -5,6 +5,7 @@ import musicLib
 import requests
 import nltk
 from nltk.chat.util import Chat, reflections
+from youtubesearchpython import VideosSearch
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
@@ -43,8 +44,11 @@ def processCommand(c):
         webbrowser.open("https://www.instagram.com/")
     elif c.lower().startswith("play"):
         song = c.lower().split(" ", 1)[1]
-        link = musicLib.music[song]
-        webbrowser.open(link)
+        videosSearch = VideosSearch(c, limit=1)
+        video_result = videosSearch.result()
+        video_link = video_result['result'][0]['link']
+        webbrowser.open(video_link)
+        speak(f"Playing {c} on YouTube.")
     elif "today's news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsAPI}")
         if r.status_code == 200:
