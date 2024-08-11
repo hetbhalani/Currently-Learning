@@ -58,7 +58,7 @@ def processCommand(c):
             webbrowser.open(search_url)
         except IndexError:
             speak("Please provide a search query after 'search'.")
-
+            
     elif "today's news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsAPI}")
         if r.status_code == 200:
