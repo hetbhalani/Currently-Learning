@@ -6,11 +6,12 @@ import requests
 import nltk
 from nltk.chat.util import Chat, reflections
 from youtubesearchpython import VideosSearch
+from googlesearch import search
 
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 microphone = sr.Microphone()
-#API key for news... me nahi bataugaaaaa!!!!
+newsAPI = me nahi bataugaaaaa.....
 nltk.download('punkt', quiet=True)
 
 patterns = [
@@ -43,12 +44,21 @@ def processCommand(c):
     elif "open instagram" in c.lower():
         webbrowser.open("https://www.instagram.com/")
     elif c.lower().startswith("play"):
-        song = c.lower().split(" ", 1)[1]
-        videosSearch = VideosSearch(c, limit=1)
+        query = c.lower().split(" ", 1)[1]
+        videosSearch = VideosSearch(query, limit=1)
         video_result = videosSearch.result()
         video_link = video_result['result'][0]['link']
         webbrowser.open(video_link)
-        speak(f"Playing {c} on YouTube.")
+        speak(f"Playing {query} on YouTube.")
+    elif c.lower().startswith("search"):
+        query = c.lower().split(" ", 1)[1]
+        gglSearch = list(search(query, num_results=5, lang='en'))
+        if gglSearch:
+            speak(f"searching {query} on Google.")
+            webbrowser.open(gglSearch)
+        else:
+            speak(f"Sorry, no results found for {query}.")
+
     elif "today's news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsAPI}")
         if r.status_code == 200:
@@ -57,7 +67,6 @@ def processCommand(c):
             for article in articles:
                 speak(article['title'])
     else:
-        # Use the AI chatbot for unrecognized commands
         response = ask_ai(c)
         speak(response)
 
