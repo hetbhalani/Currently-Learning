@@ -51,13 +51,13 @@ def processCommand(c):
         webbrowser.open(video_link)
         speak(f"Playing {query} on YouTube.")
     elif c.lower().startswith("search"):
-        query = c.lower().split(" ", 1)[1]
-        gglSearch = list(search(query, num_results=5, lang='en'))
-        if gglSearch:
-            speak(f"searching {query} on Google.")
-            webbrowser.open(gglSearch)
-        else:
-            speak(f"Sorry, no results found for {query}.")
+        try:
+            query = c.lower().split(" ", 1)[1]
+            search_url = f"https://www.google.com/search?q={query.replace(' ', '+')}"
+            speak(f"Searching {query} on Google.")
+            webbrowser.open(search_url)
+        except IndexError:
+            speak("Please provide a search query after 'search'.")
 
     elif "today's news" in c.lower():
         r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsAPI}")
