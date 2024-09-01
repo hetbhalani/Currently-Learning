@@ -11,7 +11,7 @@ from googlesearch import search
 recognizer = sr.Recognizer()
 engine = pyttsx3.init()
 microphone = sr.Microphone()
-newsAPI = me nahi bataugaaaaa.....
+newsAPI = "6ff2882ba17d42229e809add5c68a6de"
 nltk.download('punkt', quiet=True)
 
 patterns = [
