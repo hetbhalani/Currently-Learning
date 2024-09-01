@@ -5,6 +5,8 @@ import pandas as pd
 x = [0,1,2,3,4]
 y = [0,2,4,6,8]
 
+# plt.figure(figsize=(5,3))
+
 plt.plot(x,y, label='2x', color='blue', linewidth=2, linestyle='--', marker='.', markersize=10)
 
 x2 = np.arange(0,4.5,.5)
