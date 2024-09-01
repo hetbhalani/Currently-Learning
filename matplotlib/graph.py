@@ -5,10 +5,11 @@ import pandas as pd
 x = [0,1,2,3,4]
 y = [0,2,4,6,8]
 
-plt.plot(x,y, label='2x', color='red', linewidth=2, linestyle='--', marker='.', markersize=10)
+plt.plot(x,y, label='2x', color='blue', linewidth=2, linestyle='--', marker='.', markersize=10)
 
 x2 = np.arange(0,4.5,.5)
-plt.plot(x2, x2**2)
+plt.plot(x2[:6], x2[:6]**2, 'r', label='x^2')
+plt.plot(x2[5:], x2[5:]**2, 'r--')
 
 plt.title('Our First Graph!', fontdict={'fontname': 'Comic Sans MS', 'fontsize': 20})
 
