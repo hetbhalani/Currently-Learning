@@ -7,22 +7,27 @@ const data = [
   {
     name: "Het",
     img: "https://picsum.photos/300/200?random=1",
+    url: "https://www.linkedin.com/in/het-bhalani-20403b2a8/"
   },
   {
     name: "Dhruv",
     img: "https://picsum.photos/300/200?random=2",
+    url:"https://www.linkedin.com/in/dhruv-chotai-179a502aa/"
   },
   {
     name: "Meet",
     img: "https://picsum.photos/300/200?random=3",
+    url:"https://linkedin.com/in/meet-padhiar-03344a2b4/"
   },
   {
     name: "Mann",
     img: "https://picsum.photos/300/200?random=4",
+    url:"https://www.linkedin.com/in/mann-padhiar-9139972b3/"
   },
   {
     name: "Vandan",
     img: "https://picsum.photos/300/200?random=5",
+    url:"https://www.linkedin.com/in/vandan-kholia-a63b82294/"
   },
 ];
 
