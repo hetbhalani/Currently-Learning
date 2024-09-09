@@ -2,46 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
-// Define the Home component
-const Home = () => {
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page!</p>
-    </div>
-  );
-};
-
-// Define the About component
-const About = () => {
-  return (
-    <div>
-      <h1>About Page</h1>
-      <p>This is the About Page where you can learn more about us.</p>
-    </div>
-  );
-};
-
-// Define the Contect component
-const Contect = () => {
-  return (
-    <div>
-      <h1>Contect Page</h1>
-      <p>This is the Contect Page. Feel free to reach out!</p>
-    </div>
-  );
-};
-
-// Define the Service component
-const Service = () => {
-  return (
-    <div>
-      <h1>Service Page</h1>
-      <p>We offer a variety of services to help you succeed.</p>
-    </div>
-  );
-};
+import Home from './Home'
+import About from './About'
+import Contect from './Contect'
+import Service from './Service'
 
 // Define the Nav component
 function Nav() {
