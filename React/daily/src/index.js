@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import {useState} from 'react'
 
 const data = [
   {
@@ -35,31 +36,65 @@ const data = [
   },
 ];
 
-const newarr = data.map((dude) => {
-  return (
-    
-      <div className="col col-4">
-        <div className="card my-3">
-          <img src={dude.img} className="card-img-top" alt={dude.name} />
-          <div className="card-body">
-            <h5 className="card-title">{dude.name}</h5>
-            <p className="card-text">
-              {dude.about}
-            </p>
-            <button className="btn btn-primary"  onClick = {()=>window.open(dude.url, "_blank")}>
-             
-              LinkedIn
-            </button>
+// #########-----FOR UseState-----############
+  function IncreseSize(){
+
+    const [changeSize, setSizeInc] = useState(100)
+
+    const newData = data.map((dude)=>{
+      return(
+        <>
+          <div className="d-flex justify-content-evenly">
+            <button className="btn btn-primary" onClick={()=>{
+              setSizeInc(changeSize + 100)
+            }}>Increse</button>
+
+          <button className="btn btn-danger" onClick={()=>{
+              setSizeInc(changeSize - 100)
+            }}>Decrese</button>
           </div>
-        </div>
-      </div>
-  );
-});
+
+          <div className="col-3 mt-5" style={{maxWidth:325+"px"}}>
+            <div className="card w-100">
+              <img src={dude.img} className="card-img-top" alt="..." style={{width:changeSize + "px",maxWidth:100 + "%",minWidth:100 + "px"}}/>
+              <div className="card-body">
+                <h5 className="card-title d-flex justify-content-center">{dude.name}</h5>
+                <p className="card-text d-flex justify-content-center">{dude.about}</p>
+                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
+              </div>
+            </div>
+
+          </div>
+        </>
+      );
+    })  
+  }
+
+//#########-----FOR CARDS-----############
+
+// const newarr = data.map((dude) => {
+//   return (
+    
+//       <div className="col col-4">
+//         <div className="card my-3">
+//           <img src={dude.img} className="card-img-top" alt={dude.name} />
+//           <div className="card-body">
+//             <h5 className="card-title">{dude.name}</h5>
+//             <p className="card-text">
+//               {dude.about}
+//             </p>
+//             <button className="btn btn-primary"  onClick = {()=>window.open(dude.url, "_blank")}>
+             
+//               LinkedIn
+//             </button>
+//           </div>
+//         </div>
+//       </div>
+//   );
+// });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<>
-  <div className="container-sm m-4">
-    <div className="row">{newarr}</div>
-  </div>
-</>
+root.render(
+
+<IncreseSize/>
 );
