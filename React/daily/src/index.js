@@ -36,31 +36,32 @@ const data = [
   },
 ];
 
+let newData = []
 // #########-----FOR UseState-----############
   function IncreseSize(){
 
-    const [changeSize, setSizeInc] = useState(100)
+    const [changeSize, setSizeInc] = useState(325)
+    const [changeDude, setDude] = useState(0)
 
-    const newData = data.map((dude)=>{
+     newData = data.map((dude)=>{
       return(
         <>
           <div className="d-flex justify-content-evenly">
             <button className="btn btn-primary" onClick={()=>{
-              setSizeInc(changeSize + 100)
+              setSizeInc(changeSize + 10)
             }}>Increse</button>
 
           <button className="btn btn-danger" onClick={()=>{
-              setSizeInc(changeSize - 100)
+              setSizeInc(changeSize - 10)
             }}>Decrese</button>
           </div>
 
           <div className="col-3 mt-5" style={{maxWidth:325+"px"}}>
             <div className="card w-100">
-              <img src={dude.img} className="card-img-top" alt="..." style={{width:changeSize + "px",maxWidth:100 + "%",minWidth:100 + "px"}}/>
+              <img src="/cat.gif" className="card-img-top" alt="..." style={{width:changeSize + "px",maxWidth:100 + "%",minWidth:100 + "px"}}/>
               <div className="card-body">
                 <h5 className="card-title d-flex justify-content-center">{dude.name}</h5>
                 <p className="card-text d-flex justify-content-center">{dude.about}</p>
-                {/* <a href="#" className="btn btn-primary">Go somewhere</a> */}
               </div>
             </div>
 
@@ -68,6 +69,17 @@ const data = [
         </>
       );
     })  
+  }
+  function Display(){
+    return(
+      <>
+        <div className="container">
+            <div className="row">
+            {newData}
+            </div>
+        </div>
+      </>
+    );
   }
 
 //#########-----FOR CARDS-----############
@@ -95,6 +107,8 @@ const data = [
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
-<IncreseSize/>
+<>
+  <IncreseSize/>
+  <Display/>
+</>
 );
