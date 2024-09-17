@@ -56,6 +56,23 @@ app.get('/books',async (req,res)=>{
     }
 })
 
+//get by id
+app.get('/books/:id',async (req,res)=>{
+    try {
+        const { id } = req.params;
+        const books = await Book.findById(id)
+
+        return res.status(200).json({
+            count: books.length,
+            data: books
+        })
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({message:error.message});
+    }
+})
+
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log("Connected to Database");
