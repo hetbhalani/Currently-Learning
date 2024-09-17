@@ -73,6 +73,33 @@ app.get('/books/:id',async (req,res)=>{
     }
 })
 
+//update book
+
+app.patch('/books/:id', async(req,res)=>{
+    try {
+        if(
+            !req.body.title ||
+            !req.body.author ||
+            !req.body.publishYear
+        )
+        {
+            return res.status(400).send({message:'Fill all the details'});
+        }
+
+        const {id} = req.params;
+
+        const result = await Book.findByIdAndUpdate(id, req.body);
+        if(!result){
+            return res.status(404).json({message:"book not found"});
+        }
+
+        return res.status(200).send({message: "book updated successfully"});
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({message:error.message});
+    }
+})
+
 mongoose.connect(process.env.MONGO_URL)
 .then(()=>{
     console.log("Connected to Database");
