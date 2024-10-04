@@ -22,5 +22,6 @@ plt.ylabel('US Dollars')
 plt.legend()
 
 plt.savefig('Gas_price_figure.png', dpi=300)
+# save img of graph
 
 plt.show()
