@@ -5,6 +5,7 @@ fifa = pd.read_csv('./fifa_data.csv')
 
 bins = [40,50,60,70,80,90,100]
 plt.figure(figsize=(8,5))
+#bins etle bar
 
 plt.hist(fifa.Overall, bins=bins, color='#abcdfe')
 
