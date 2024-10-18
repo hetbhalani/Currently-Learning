@@ -14,4 +14,9 @@ print(np1[1:5:2]) # , ,steps
 print(np1[::2]) #skip one
 
 np2 = np.array([[1,2,3,4,5],[6,7,8,9,10]])
-print(np2[1,2]) #8
+print(np2[1,2]) #row, elm
+#8
+
+print(np2[0:1 , 1:3]) #first row, elm
+
+print(np2[0:2 , 1:7]) #both rows, elm
