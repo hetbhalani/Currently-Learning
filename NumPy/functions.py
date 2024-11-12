@@ -13,4 +13,4 @@ print(np.max(np1))
 print(np.sign(np1)) # -1,0,1
 
 print(np.sin(np1)) #trig. na badha operations
-print(np.log(np1))
+print(np.log(np1)) #natural log
