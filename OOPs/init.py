@@ -6,6 +6,8 @@ class Student:
         print(f"Hi I'm {name}")
         print(age)
         
+    def dblAge(self):
+        return self.age*2
         
     
 s1 = Student("Het",18)
@@ -15,3 +17,5 @@ s1 = Student("Het",18)
 s2 = Student("Bhai",12345)
 # s2.name = "Bhai"
 # s2.age = 1234
+
+print(s1.dblAge())
