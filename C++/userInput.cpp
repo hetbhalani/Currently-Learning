@@ -8,7 +8,7 @@ int main(){
     cout << "Enter your age: " << endl;
     cin >> age;
 
-    cin.ignore(1000,'\n');
+    // cin.ignore(1000,'\n'); //ignores last 1000 chars in buffer 
 
     cout << "Enter your name: "<< endl;
     getline(cin,name);
